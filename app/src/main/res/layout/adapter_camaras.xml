@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="6dp"
+        android:layout_marginTop="6dp"
+        android:layout_marginRight="6dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:padding="6dp">
+
+        <TextView
+            android:id="@+id/textViewCodCamara"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="6dp"
+            android:layout_weight="1"
+            android:background="@color/cinza_transparente"
+            android:gravity="center"
+            android:text="CAMARA: 04"
+            android:textSize="17sp" />
+
+        <TextView
+            android:id="@+id/textViewHabilitacaoCamara"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/cinza_transparente"
+            android:gravity="center"
+            android:text="HABILITACAO: UA-CHINA-HAL"
+            android:textSize="17sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="6dp"
+        android:layout_marginRight="6dp"
+        android:layout_marginBottom="6dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:padding="6dp">
+
+        <TextView
+            android:id="@+id/textViewPeriodoCamara"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="6dp"
+            android:layout_weight="1"
+            android:background="@color/cinza_transparente"
+            android:gravity="center"
+            android:text="PERÍODO: 08:48:00 - 09:53:00"
+            android:textSize="17sp" />
+
+        <TextView
+            android:id="@+id/textViewQuantidadeCamara"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/cinza_transparente"
+            android:gravity="center"
+            android:text="QTDE: 170"
+            android:textSize="17sp" />
+    </LinearLayout>
+
+    <include layout="@layout/divisor_lista" />
+</LinearLayout>
