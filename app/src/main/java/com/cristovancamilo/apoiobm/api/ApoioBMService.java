@@ -2,7 +2,7 @@ package com.cristovancamilo.apoiobm.api;
 
 import com.cristovancamilo.apoiobm.model.Camaras;
 import com.cristovancamilo.apoiobm.model.EstoqueBloqueado;
-import com.cristovancamilo.apoiobm.model.Acompanha;
+import com.cristovancamilo.apoiobm.model.AcompanhaAbate;
 
 import java.util.List;
 
@@ -18,6 +18,6 @@ public interface ApoioBMService {
     Call<List<Camaras>> recuperarCamaras();
 
     @GET("/datasnap/rest/TSM_BM/Acompanha")
-    Call<List<Acompanha>> recuperarAcompanhaAbate();
+    Call<List<AcompanhaAbate>> recuperarAcompanhaAbate();
 
 }

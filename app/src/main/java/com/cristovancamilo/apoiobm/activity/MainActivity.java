@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -12,7 +13,7 @@ import android.widget.Toast;
 import com.cristovancamilo.apoiobm.R;
 import com.cristovancamilo.apoiobm.api.ApoioBMService;
 import com.cristovancamilo.apoiobm.helper.RetrofitConfig;
-import com.cristovancamilo.apoiobm.model.Acompanha;
+import com.cristovancamilo.apoiobm.model.AcompanhaAbate;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,12 +30,14 @@ public class MainActivity extends AppCompatActivity {
     private Retrofit retrofit;
     private TextView textoTotalAbate, textoAbatidos, textoRestam;
     private ProgressBar pbQuantidadeAbate;
-    private List<Acompanha> listaAcompanhaAbate = new ArrayList<>();
+    private List<AcompanhaAbate> listaAcompanhaAbate = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+
 
         retrofit = RetrofitConfig.getRetrofit();
         textoAbatidos = findViewById(R.id.textViewAbatidos);
@@ -59,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        int delay = 5000;
+        int delay = 0;
         int interval = 10000;
         Timer timer = new Timer();
         timer.scheduleAtFixedRate(new TimerTask() {
@@ -72,28 +75,28 @@ public class MainActivity extends AppCompatActivity {
 
     public void atualizarQuantidadesAbate() {
         ApoioBMService apoioBMService = retrofit.create(ApoioBMService.class);
-        Call<List<Acompanha>> call = apoioBMService.recuperarAcompanhaAbate();
+        Call<List<AcompanhaAbate>> call = apoioBMService.recuperarAcompanhaAbate();
 
         listaAcompanhaAbate.clear();
 
-       call.enqueue(new Callback<List<Acompanha>>() {
+       call.enqueue(new Callback<List<AcompanhaAbate>>() {
             @Override
-            public void onResponse(Call<List<Acompanha>> call, Response<List<Acompanha>> response) {
+            public void onResponse(Call<List<AcompanhaAbate>> call, Response<List<AcompanhaAbate>> response) {
                 if(response.isSuccessful()) {
                     listaAcompanhaAbate = response.body();
 
-                    textoTotalAbate.setText("Total: " + listaAcompanhaAbate.get(0).getTotal().toString());
-                    textoAbatidos.setText("Abatidos: " + listaAcompanhaAbate.get(0).getAbatidos().toString());
-                    textoRestam.setText("Restam: " + listaAcompanhaAbate.get(0).getRestam().toString());
+                    textoTotalAbate.setText("Total: " + listaAcompanhaAbate.get(0).getTotal());
+                    textoAbatidos.setText("Abatidos: " + listaAcompanhaAbate.get(0).getAbatidos());
+                    textoRestam.setText("Restam: " + listaAcompanhaAbate.get(0).getRestam());
 
-                    pbQuantidadeAbate.setMax(Integer.parseInt(listaAcompanhaAbate.get(0).getTotal().toString()));
-                    pbQuantidadeAbate.setProgress(Integer.parseInt(listaAcompanhaAbate.get(0).getAbatidos().toString()));
+                    pbQuantidadeAbate.setMax(Integer.parseInt(listaAcompanhaAbate.get(0).getTotal()));
+                    pbQuantidadeAbate.setProgress(Integer.parseInt(listaAcompanhaAbate.get(0).getAbatidos()));
 
                 }
             }
 
             @Override
-            public void onFailure(Call<List<Acompanha>> call, Throwable t) {
+            public void onFailure(Call<List<AcompanhaAbate>> call, Throwable t) {
                 Toast.makeText(MainActivity.this, t.getMessage(), Toast.LENGTH_LONG).show();
             }
         });

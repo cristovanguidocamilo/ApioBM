@@ -1,12 +1,12 @@
 package com.cristovancamilo.apoiobm.model;
 
-public class Acompanha {
+public class AcompanhaAbate {
 
     private String total;
     private String abatidos;
     private String restam;
 
-    public Acompanha() {
+    public AcompanhaAbate() {
     }
 
     public String getTotal() {
