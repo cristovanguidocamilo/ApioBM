@@ -1,8 +1,10 @@
 package com.cristovancamilo.apoiobm.adapter;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -17,9 +19,11 @@ import java.util.List;
 public class AdapterCamaras extends RecyclerView.Adapter<AdapterCamaras.MyViewHolder> {
 
     List<Camaras> listaCamaras;
+    Context context;
 
-    public AdapterCamaras(List<Camaras> listaCamaras) {
+    public AdapterCamaras(List<Camaras> listaCamaras, Context context) {
         this.listaCamaras = listaCamaras;
+        this.context = context;
     }
 
     @NonNull
@@ -39,6 +43,10 @@ public class AdapterCamaras extends RecyclerView.Adapter<AdapterCamaras.MyViewHo
         holder.textoHabilitacao.setText("HABILITAÇÃO: " + camaras.getHabilitacao());
         holder.textoCodCamara.setText("CÂMARA: " + camaras.getCodCamara());
 
+        if(camaras.getPeriodo().length() >= 30) {
+            holder.linearLayout.setBackgroundColor(context.getResources().getColor(R.color.verde_camara_fechada));
+        }
+
     }
 
     @Override
@@ -49,6 +57,7 @@ public class AdapterCamaras extends RecyclerView.Adapter<AdapterCamaras.MyViewHo
     public class MyViewHolder extends RecyclerView.ViewHolder{
 
         TextView textoCodCamara, textoHabilitacao, textoQuantidade, textoPeriodo;
+        LinearLayout linearLayout;
 
         public MyViewHolder(View itemView) {
             super(itemView);
@@ -57,6 +66,7 @@ public class AdapterCamaras extends RecyclerView.Adapter<AdapterCamaras.MyViewHo
             textoHabilitacao = itemView.findViewById(R.id.textViewHabilitacaoCamara);
             textoQuantidade = itemView.findViewById(R.id.textViewQuantidadeCamara);
             textoPeriodo = itemView.findViewById(R.id.textViewPeriodoCamara);
+            linearLayout = itemView.findViewById(R.id.linearLayoutFundoCamaras);
 
         }
     }

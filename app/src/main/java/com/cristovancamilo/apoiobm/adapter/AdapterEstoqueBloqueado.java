@@ -1,5 +1,6 @@
 package com.cristovancamilo.apoiobm.adapter;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,9 +17,11 @@ import java.util.List;
 public class AdapterEstoqueBloqueado extends RecyclerView.Adapter<AdapterEstoqueBloqueado.MyViewHolder> {
 
     List<EstoqueBloqueado> listaEstoqueBloqueado;
+    Context context;
 
-    public AdapterEstoqueBloqueado(List<EstoqueBloqueado> listaEstoqueBloqueado) {
+    public AdapterEstoqueBloqueado(List<EstoqueBloqueado> listaEstoqueBloqueado, Context context) {
         this.listaEstoqueBloqueado = listaEstoqueBloqueado;
+        this.context = context;
     }
 
     @NonNull

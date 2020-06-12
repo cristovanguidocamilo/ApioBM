@@ -112,6 +112,9 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onFailure(Call<List<AcompanhaAbate>> call, Throwable t) {
                 Toast.makeText(MainActivity.this, t.getMessage(), Toast.LENGTH_LONG).show();
+                textoAbatidos.setText("OFFLINE");
+                textoRestam.setText("OFFLINE");
+                textoTotalAbate.setText("OFFLINE");
             }
         });
     }

@@ -95,7 +95,7 @@ public class EstoqueBloqueadoActivity extends AppCompatActivity {
 
     public void configuraRecyclerView() {
         //Configura Adapter
-        adapterEstoqueBloqueado = new AdapterEstoqueBloqueado(listaEstoqueBloqueado);
+        adapterEstoqueBloqueado = new AdapterEstoqueBloqueado(listaEstoqueBloqueado, this);
         //Configurar RecyclerView
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(layoutManager);

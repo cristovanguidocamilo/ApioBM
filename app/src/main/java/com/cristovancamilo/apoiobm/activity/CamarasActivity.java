@@ -88,7 +88,7 @@ public class CamarasActivity extends AppCompatActivity {
 
     public void configuraRecyclerView() {
         //Configura Adapter
-        adapterCamaras = new AdapterCamaras(listaCamaras);
+        adapterCamaras = new AdapterCamaras(listaCamaras, this);
         //Configurar RecyclerView
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerViewCamaras.setLayoutManager(layoutManager);
