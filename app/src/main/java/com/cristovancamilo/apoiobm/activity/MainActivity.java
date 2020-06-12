@@ -31,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView textoTotalAbate, textoAbatidos, textoRestam;
     private ProgressBar pbQuantidadeAbate;
     private List<AcompanhaAbate> listaAcompanhaAbate = new ArrayList<>();
+    private Timer timer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,9 +63,22 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
+        ativaTimer();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        if(timer != null) {
+            timer.cancel();
+            timer.purge();
+        }
+    }
+
+    public void ativaTimer() {
         int delay = 0;
         int interval = 10000;
-        Timer timer = new Timer();
+        timer = new Timer();
         timer.scheduleAtFixedRate(new TimerTask() {
             @Override
             public void run() {
