@@ -3,9 +3,11 @@ package com.cristovancamilo.apoiobm.activity;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.Toast;
 
 import com.cristovancamilo.apoiobm.R;
@@ -29,6 +31,7 @@ public class EstoqueBloqueadoActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private List<EstoqueBloqueado> listaEstoqueBloqueado = new ArrayList<>();
     private Retrofit retrofit;
+    private SwipeRefreshLayout swipeContainer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,7 +44,21 @@ public class EstoqueBloqueadoActivity extends AppCompatActivity {
         //Configurando Retrofit
         retrofit = RetrofitConfig.getRetrofit();
 
+        //Configura SwipeRefreshLayout
+        swipeContainer = (SwipeRefreshLayout) findViewById(R.id.swipeContainerEstoqueBloqueado);
+        swipeContainer.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                recuperarEstoqueBloqueado();
+            }
+        });
+        swipeContainer.setColorSchemeResources(android.R.color.holo_blue_bright,
+                android.R.color.holo_green_light,
+                android.R.color.holo_orange_light,
+                android.R.color.holo_red_light);
+
         recyclerView = findViewById(R.id.recyclerViewEstoqueBloqueado);
+
 
         recuperarEstoqueBloqueado();
 
@@ -58,8 +75,8 @@ public class EstoqueBloqueadoActivity extends AppCompatActivity {
             public void onResponse(Call<List<EstoqueBloqueado>> call, Response<List<EstoqueBloqueado>> response) {
                 if(response.isSuccessful()) {
                     listaEstoqueBloqueado = response.body();
-
                     configuraRecyclerView();
+                    swipeContainer.setRefreshing(false);
                 }
             }
 

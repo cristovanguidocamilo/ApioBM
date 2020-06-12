@@ -3,6 +3,7 @@ package com.cristovancamilo.apoiobm.activity;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.os.Bundle;
 import android.view.View;
@@ -31,6 +32,7 @@ public class CamarasActivity extends AppCompatActivity {
     private RecyclerView recyclerViewCamaras;
     private List<Camaras> listaCamaras = new ArrayList<>();
     private Retrofit retrofit;
+    private SwipeRefreshLayout swipeContainer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +44,19 @@ public class CamarasActivity extends AppCompatActivity {
 
         //Configurando Retrofit
         retrofit = RetrofitConfig.getRetrofit();
+
+        //Configura SwipeRefreshLayout
+        swipeContainer = (SwipeRefreshLayout) findViewById(R.id.swipeContainerCamaras);
+        swipeContainer.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                recuperarCamaras();
+            }
+        });
+        swipeContainer.setColorSchemeResources(android.R.color.holo_blue_bright,
+                android.R.color.holo_green_light,
+                android.R.color.holo_orange_light,
+                android.R.color.holo_red_light);
 
         recyclerViewCamaras = findViewById(R.id.recyclerViewCamaras);
 
@@ -59,8 +74,8 @@ public class CamarasActivity extends AppCompatActivity {
             public void onResponse(Call<List<Camaras>> call, Response<List<Camaras>> response) {
                 if(response.isSuccessful()) {
                     listaCamaras = response.body();
-
                     configuraRecyclerView();
+                    swipeContainer.setRefreshing(false);
                 }
             }
 

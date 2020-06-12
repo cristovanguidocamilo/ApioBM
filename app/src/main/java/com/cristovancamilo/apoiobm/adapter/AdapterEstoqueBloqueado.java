@@ -58,4 +58,5 @@ public class AdapterEstoqueBloqueado extends RecyclerView.Adapter<AdapterEstoque
 
         }
     }
+
 }
