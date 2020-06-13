@@ -84,6 +84,13 @@
                 android:onClick="abrirCamaras"
                 android:text="CONSULTA CÂMARAS" />
 
+            <Button
+                android:id="@+id/button"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:onClick="abrirEscalaAbate"
+                android:text="Escala de Abate" />
+
 
         </LinearLayout>
     </ScrollView>

@@ -60,6 +60,11 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void abrirEscalaAbate(View view) {
+        Intent intent = new Intent(MainActivity.this, EscalaAbateActivity.class);
+        startActivity(intent);
+    }
+
     @Override
     protected void onStart() {
         super.onStart();
@@ -103,6 +108,10 @@ public class MainActivity extends AppCompatActivity {
                     textoAbatidos.setText("Abatidos: " + listaAcompanhaAbate.get(0).getAbatidos());
                     textoRestam.setText("Restam: " + listaAcompanhaAbate.get(0).getRestam());
 
+                    textoTotalAbate.setTextColor(getApplicationContext().getResources().getColor(R.color.verde_texto_online));
+                    textoAbatidos.setTextColor(getApplicationContext().getResources().getColor(R.color.verde_texto_online));
+                    textoRestam.setTextColor(getApplicationContext().getResources().getColor(R.color.verde_texto_online));
+
                     pbQuantidadeAbate.setMax(Integer.parseInt(listaAcompanhaAbate.get(0).getTotal()));
                     pbQuantidadeAbate.setProgress(Integer.parseInt(listaAcompanhaAbate.get(0).getAbatidos()));
 
@@ -115,6 +124,10 @@ public class MainActivity extends AppCompatActivity {
                 textoAbatidos.setText("OFFLINE");
                 textoRestam.setText("OFFLINE");
                 textoTotalAbate.setText("OFFLINE");
+
+                textoTotalAbate.setTextColor(getApplicationContext().getResources().getColor(R.color.vermelho_texto_offline));
+                textoAbatidos.setTextColor(getApplicationContext().getResources().getColor(R.color.vermelho_texto_offline));
+                textoRestam.setTextColor(getApplicationContext().getResources().getColor(R.color.vermelho_texto_offline));
             }
         });
     }
