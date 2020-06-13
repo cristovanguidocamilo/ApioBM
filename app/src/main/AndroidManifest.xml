@@ -12,15 +12,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.EscalaAbateActivity"
-            android:parentActivityName=".activity.MainActivity"></activity>
+        <activity android:name=".activity.MainActivity"></activity>
+        <activity
+            android:name=".activity.EscalaAbateActivity"
+            android:parentActivityName=".activity.MainActivity" />
         <activity
             android:name=".activity.CamarasActivity"
             android:parentActivityName=".activity.MainActivity" />
         <activity
             android:name=".activity.EstoqueBloqueadoActivity"
             android:parentActivityName=".activity.MainActivity" />
-        <activity android:name=".activity.MainActivity">
+        <activity android:name=".activity.SplashActivity"
+                  android:theme="@style/Theme.AppCompat.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
