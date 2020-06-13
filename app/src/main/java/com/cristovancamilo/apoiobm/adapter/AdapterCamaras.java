@@ -43,7 +43,7 @@ public class AdapterCamaras extends RecyclerView.Adapter<AdapterCamaras.MyViewHo
         holder.textoHabilitacao.setText("HABILITAÇÃO: " + camaras.getHabilitacao());
         holder.textoCodCamara.setText("CÂMARA: " + camaras.getCodCamara());
 
-        if(camaras.getPeriodo().length() >= 30) {
+        if(camaras.getPeriodo().length() >= 16) {
             holder.linearLayout.setBackgroundColor(context.getResources().getColor(R.color.verde_camara_fechada));
         }
 

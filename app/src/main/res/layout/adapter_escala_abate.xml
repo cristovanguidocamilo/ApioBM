@@ -75,6 +75,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="6dp"
+            android:layout_marginBottom="6dp"
             android:gravity="center"
             android:text="Habilitacão: UA/CHINA/HALAL" />
     </LinearLayout>
