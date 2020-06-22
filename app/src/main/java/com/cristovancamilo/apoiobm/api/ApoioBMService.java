@@ -2,8 +2,8 @@ package com.cristovancamilo.apoiobm.api;
 
 import com.cristovancamilo.apoiobm.model.Camaras;
 import com.cristovancamilo.apoiobm.model.EscalaAbate;
-import com.cristovancamilo.apoiobm.model.EstoqueBloqueado;
 import com.cristovancamilo.apoiobm.model.AcompanhaAbate;
+import com.cristovancamilo.apoiobm.model.EstoqueBloqueado;
 
 import java.util.List;
 

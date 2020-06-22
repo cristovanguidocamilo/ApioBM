@@ -1,19 +1,17 @@
 package com.cristovancamilo.apoiobm.activity;
 
+import android.os.Bundle;
+import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
-import android.os.Bundle;
-import android.widget.Toast;
-
 import com.cristovancamilo.apoiobm.R;
-import com.cristovancamilo.apoiobm.adapter.AdapterCamaras;
 import com.cristovancamilo.apoiobm.adapter.AdapterEscalaAbate;
 import com.cristovancamilo.apoiobm.api.ApoioBMService;
 import com.cristovancamilo.apoiobm.helper.RetrofitConfig;
-import com.cristovancamilo.apoiobm.model.Camaras;
 import com.cristovancamilo.apoiobm.model.EscalaAbate;
 
 import java.util.ArrayList;

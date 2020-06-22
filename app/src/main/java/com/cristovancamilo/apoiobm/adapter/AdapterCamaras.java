@@ -12,7 +12,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.cristovancamilo.apoiobm.R;
 import com.cristovancamilo.apoiobm.model.Camaras;
-import com.cristovancamilo.apoiobm.model.EstoqueBloqueado;
 
 import java.util.List;
 

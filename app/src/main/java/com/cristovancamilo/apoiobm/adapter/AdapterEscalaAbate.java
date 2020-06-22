@@ -11,7 +11,6 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.cristovancamilo.apoiobm.R;
-import com.cristovancamilo.apoiobm.model.Camaras;
 import com.cristovancamilo.apoiobm.model.EscalaAbate;
 
 import java.util.List;
@@ -39,7 +38,8 @@ public class AdapterEscalaAbate extends RecyclerView.Adapter<AdapterEscalaAbate.
 
         holder.textoLote.setText("Lote: " + escalaAbate.getLote());
         holder.textoSubLote.setText("SubLote: " + escalaAbate.getSubLote());
-        holder.textoQuantidade.setText("Quantidade: " + escalaAbate.getQuantLote());
+        holder.textoQuantidade.setText("Qtde: " + escalaAbate.getQuantLote());
+        holder.textoDIA.setText("D.I.A.: " + escalaAbate.getBrincado());
         holder.textoCurrais.setText("Currais: " + escalaAbate.getCurrais());
         holder.textoProprietario.setText("Proprietário: " + escalaAbate.getNome());
         holder.textoFazenda.setText("Fazenda: " + escalaAbate.getNomeFazenda());
@@ -59,7 +59,7 @@ public class AdapterEscalaAbate extends RecyclerView.Adapter<AdapterEscalaAbate.
 
     public class MyViewHolder extends RecyclerView.ViewHolder{
 
-        TextView textoLote, textoSubLote, textoQuantidade, textoCurrais, textoProprietario, textoFazenda, textoHabilitacao;
+        TextView textoLote, textoSubLote, textoQuantidade, textoCurrais, textoProprietario, textoFazenda, textoHabilitacao, textoDIA;
         LinearLayout linearLayout;
 
         public MyViewHolder(View itemView) {
@@ -73,6 +73,7 @@ public class AdapterEscalaAbate extends RecyclerView.Adapter<AdapterEscalaAbate.
             textoFazenda = itemView.findViewById(R.id.textViewFazenda);
             textoHabilitacao = itemView.findViewById(R.id.textViewHabilitacaoEscala);
             linearLayout = itemView.findViewById(R.id.linearLayoutFundoEscalaAbate);
+            textoDIA = itemView.findViewById(R.id.textViewBrincado);
 
         }
     }

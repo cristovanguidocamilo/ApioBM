@@ -1,21 +1,18 @@
 package com.cristovancamilo.apoiobm.activity;
 
+import android.os.Bundle;
+import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
-import android.os.Bundle;
-import android.view.View;
-import android.widget.Toast;
-
 import com.cristovancamilo.apoiobm.R;
 import com.cristovancamilo.apoiobm.adapter.AdapterCamaras;
-import com.cristovancamilo.apoiobm.adapter.AdapterEstoqueBloqueado;
 import com.cristovancamilo.apoiobm.api.ApoioBMService;
 import com.cristovancamilo.apoiobm.helper.RetrofitConfig;
 import com.cristovancamilo.apoiobm.model.Camaras;
-import com.cristovancamilo.apoiobm.model.EstoqueBloqueado;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,7 +21,6 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 public class CamarasActivity extends AppCompatActivity {
 

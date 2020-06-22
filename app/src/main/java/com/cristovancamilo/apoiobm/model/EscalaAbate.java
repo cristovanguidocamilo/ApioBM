@@ -10,6 +10,7 @@ public class EscalaAbate {
     private String nomeFazenda;
     private String habilitacao;
     private String statusLote;
+    private String brincado;
 
     public EscalaAbate() {
     }
@@ -77,4 +78,8 @@ public class EscalaAbate {
     public void setStatusLote(String statusLote) {
         this.statusLote = statusLote;
     }
+
+    public String getBrincado() { return brincado; }
+
+    public void setBrincado(String brincado) { this.brincado = brincado; }
 }
