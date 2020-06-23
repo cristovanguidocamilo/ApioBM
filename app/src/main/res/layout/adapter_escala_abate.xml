@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/linearLayoutFundoEscalaAbate"
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/cardViewFundoEscalaAbate"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:gravity="center"
@@ -9,85 +10,102 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <TextView
-            android:id="@+id/textViewLote"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="6dp"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="Lote: 01" />
-
-        <TextView
-            android:id="@+id/textViewSubLote"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="6dp"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="SubLote: A" />
-
-        <TextView
-            android:id="@+id/textViewQuantidadeEscala"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="6dp"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="Qtde: 300" />
-
-        <TextView
-            android:id="@+id/textViewBrincado"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="D.I.A.: S" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="6dp"
-        android:layout_weight="1"
+        android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/textViewCurrais"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="Currais: 8 9 10 11 12 13 14 19 20 30 31 32 33 51" />
+            android:orientation="horizontal">
 
-        <TextView
-            android:id="@+id/textViewProprietario"
+            <TextView
+                android:id="@+id/textViewLote"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="6dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="Lote: 01" />
+
+            <TextView
+                android:id="@+id/textViewSubLote"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="6dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="SubLote: A" />
+
+            <TextView
+                android:id="@+id/textViewQuantidadeEscala"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="6dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="Qtde: 300" />
+
+            <TextView
+                android:id="@+id/textViewBrincado"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="D.I.A.: S" />
+
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="6dp"
-            android:gravity="center"
-            android:text="Proprietario: AAAAAAAAAAA DE AAAAAAAAAAA DA AAAAAA" />
+            android:layout_weight="1"
+            android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/textViewFazenda"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
-            android:gravity="center"
-            android:text="Fazenda: SITIO NOSSA SENHORA APARECIDA DE GOIÁS" />
+            <TextView
+                android:id="@+id/textViewCurrais"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Currais: 8 9 10 11 12 13 14 19 20 30 31 32 33 51" />
 
-        <TextView
-            android:id="@+id/textViewHabilitacaoEscala"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
-            android:layout_marginBottom="6dp"
-            android:gravity="center"
-            android:text="Habilitacão: UA/CHINA/HALAL" />
+            <TextView
+                android:id="@+id/textViewProprietario"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:gravity="center"
+                android:text="Proprietario: AAAAAAAAAAA DE AAAAAAAAAAA DA AAAAAA" />
+
+            <TextView
+                android:id="@+id/textViewFazenda"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:gravity="center"
+                android:text="Fazenda: SITIO NOSSA SENHORA APARECIDA DE GOIÁS" />
+
+            <TextView
+                android:id="@+id/textViewHabilitacaoEscala"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:layout_marginBottom="6dp"
+                android:gravity="center"
+                android:text="Habilitacão: UA/CHINA/HALAL" />
+
+            <TextView
+                android:id="@+id/textViewStatusLote"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="6dp"
+                android:gravity="center"
+                android:text="Status: Aguardando Abate" />
+        </LinearLayout>
+
     </LinearLayout>
 
+
+
     <include layout="@layout/divisor_lista" />
-</LinearLayout>
+</androidx.cardview.widget.CardView>

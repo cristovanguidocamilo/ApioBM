@@ -4,10 +4,10 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.cristovancamilo.apoiobm.R;
@@ -44,12 +44,7 @@ public class AdapterEscalaAbate extends RecyclerView.Adapter<AdapterEscalaAbate.
         holder.textoProprietario.setText("Proprietário: " + escalaAbate.getNome());
         holder.textoFazenda.setText("Fazenda: " + escalaAbate.getNomeFazenda());
         holder.textoHabilitacao.setText("Habilitação: " + escalaAbate.getHabilitacao());
-
-        if(Integer.parseInt(escalaAbate.getStatusLote()) == 1) {
-            holder.linearLayout.setBackgroundColor(context.getResources().getColor(R.color.cor_amarelo_fundo_lote_em_abate));
-        }else if(Integer.parseInt(escalaAbate.getStatusLote()) == 2) {
-            holder.linearLayout.setBackgroundColor(context.getResources().getColor(R.color.verde_camara_fechada));
-        }
+        holder.textoStatusLote.setText("Status: " + escalaAbate.getStatusLote());
     }
 
     @Override
@@ -59,8 +54,8 @@ public class AdapterEscalaAbate extends RecyclerView.Adapter<AdapterEscalaAbate.
 
     public class MyViewHolder extends RecyclerView.ViewHolder{
 
-        TextView textoLote, textoSubLote, textoQuantidade, textoCurrais, textoProprietario, textoFazenda, textoHabilitacao, textoDIA;
-        LinearLayout linearLayout;
+        TextView textoLote, textoSubLote, textoQuantidade, textoCurrais, textoProprietario, textoFazenda, textoHabilitacao, textoDIA, textoStatusLote;
+        CardView cardViewFundo;
 
         public MyViewHolder(View itemView) {
             super(itemView);
@@ -72,9 +67,9 @@ public class AdapterEscalaAbate extends RecyclerView.Adapter<AdapterEscalaAbate.
             textoProprietario = itemView.findViewById(R.id.textViewProprietario);
             textoFazenda = itemView.findViewById(R.id.textViewFazenda);
             textoHabilitacao = itemView.findViewById(R.id.textViewHabilitacaoEscala);
-            linearLayout = itemView.findViewById(R.id.linearLayoutFundoEscalaAbate);
+            cardViewFundo = itemView.findViewById(R.id.cardViewFundoEscalaAbate);
             textoDIA = itemView.findViewById(R.id.textViewBrincado);
-
+            textoStatusLote = itemView.findViewById(R.id.textViewStatusLote);
         }
     }
 

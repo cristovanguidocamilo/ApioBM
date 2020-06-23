@@ -64,12 +64,11 @@ public class EscalaAbateActivity extends AppCompatActivity {
         ApoioBMService apoioBMService = retrofit.create(ApoioBMService.class);
         Call<List<EscalaAbate>> call = apoioBMService.recuperarEscalaAbate();
 
-        listEscalaAbate.clear();
-
         call.enqueue(new Callback<List<EscalaAbate>>() {
             @Override
             public void onResponse(Call<List<EscalaAbate>> call, Response<List<EscalaAbate>> response) {
                 if(response.isSuccessful()) {
+                    listEscalaAbate.clear();
                     listEscalaAbate = response.body();
                     configuraRecyclerView();
                     swipeContainer.setRefreshing(false);

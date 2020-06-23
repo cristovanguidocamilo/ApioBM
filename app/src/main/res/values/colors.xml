@@ -9,5 +9,7 @@
     <color name="verde_texto_online">#01B32D</color>
     <color name="cor_amarelo_fundo_lote_em_abate">#45FFF300</color>
     <color name="color_primary_transparente">#4B393939</color>
+    <color name="amarelo_status_em_abate">#FFC107</color>
+    <color name="verde_status_finalizado">#009688</color>
     <color name="background_app_color">#0D363636</color>
 </resources>
