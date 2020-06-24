@@ -4,6 +4,7 @@ import com.cristovancamilo.apoiobm.model.Camaras;
 import com.cristovancamilo.apoiobm.model.EscalaAbate;
 import com.cristovancamilo.apoiobm.model.AcompanhaAbate;
 import com.cristovancamilo.apoiobm.model.EstoqueBloqueado;
+import com.cristovancamilo.apoiobm.model.QuantidadesAbate;
 import com.cristovancamilo.apoiobm.model.QuantidadesLote;
 
 import java.util.List;
@@ -28,5 +29,8 @@ public interface ApoioBMService {
 
     @GET("/datasnap/rest/TSM_BM/QuantidadesLote/{num_lote}")
     Call<List<QuantidadesLote>> recuperarQuantidadesLote(@Path("num_lote") String num_lote);
+
+    @GET("/datasnap/rest/TSM_BM/QuantidadesAbate")
+    Call<List<QuantidadesAbate>> recuperarQuantidadesAbate();
 
 }

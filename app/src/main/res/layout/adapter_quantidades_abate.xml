@@ -15,18 +15,7 @@
         android:padding="6dp">
 
         <TextView
-            android:id="@+id/textViewQtdLoteNumLote"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="20"
-            android:gravity="center"
-            android:text="LOTE: 01"
-            android:textColor="@android:color/black"
-            android:textSize="17sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/textViewQtdLoteHabilitacao"
+            android:id="@+id/textViewQtdAbateHabilitacao"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="6dp"
@@ -38,7 +27,7 @@
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/textViewQtdLoteQuantidade"
+            android:id="@+id/textViewQtdAbateQuantidade"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="6dp"

@@ -25,7 +25,9 @@
                 android:layout_marginRight="6dp"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="Lote: 01" />
+                android:text="Lote: 01"
+                android:textColor="@android:color/black"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/textViewSubLote"
@@ -34,7 +36,9 @@
                 android:layout_marginRight="6dp"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="SubLote: A" />
+                android:text="SubLote: A"
+                android:textColor="@android:color/black"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/textViewQtdLoteQuantidade"
@@ -43,7 +47,9 @@
                 android:layout_marginRight="6dp"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="Qtde: 300" />
+                android:text="Qtde: 300"
+                android:textColor="@android:color/black"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/textViewBrincado"
@@ -51,7 +57,9 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="D.I.A.: S" />
+                android:text="D.I.A.: S"
+                android:textColor="@android:color/black"
+                android:textStyle="bold" />
 
         </LinearLayout>
 
@@ -67,7 +75,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="Currais: 8 9 10 11 12 13 14 19 20 30 31 32 33 51" />
+                android:text="Currais: 8 9 10 11 12 13 14 19 20 30 31 32 33 51"
+                android:textColor="@android:color/black"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/textViewProprietario"
@@ -75,7 +85,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="6dp"
                 android:gravity="center"
-                android:text="Proprietario: AAAAAAAAAAA DE AAAAAAAAAAA DA AAAAAA" />
+                android:text="Proprietario: AAAAAAAAAAA DE AAAAAAAAAAA DA AAAAAA"
+                android:textColor="@android:color/black"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/textViewFazenda"
@@ -83,7 +95,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="6dp"
                 android:gravity="center"
-                android:text="Fazenda: SITIO NOSSA SENHORA APARECIDA DE GOIÁS" />
+                android:text="Fazenda: SITIO NOSSA SENHORA APARECIDA DE GOIÁS"
+                android:textColor="@android:color/black"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/textViewHabilitacaoEscala"
@@ -92,7 +106,9 @@
                 android:layout_marginTop="6dp"
                 android:layout_marginBottom="6dp"
                 android:gravity="center"
-                android:text="Habilitacão: UA/CHINA/HALAL" />
+                android:text="Habilitacão: UA/CHINA/HALAL"
+                android:textColor="@android:color/black"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/textViewStatusLote"
@@ -100,7 +116,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="6dp"
                 android:gravity="center"
-                android:text="Status: Aguardando Abate" />
+                android:text="Status: Aguardando Abate"
+                android:textColor="@android:color/black"
+                android:textStyle="bold" />
         </LinearLayout>
 
     </LinearLayout>

@@ -101,6 +101,16 @@
                 android:onClick="abrirEscalaAbate"
                 android:text="Escala de Abate" />
 
+            <Button
+                android:id="@+id/buttonQuantidadesAbate"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_marginTop="3dp"
+                android:layout_marginBottom="3dp"
+                android:background="@color/color_primary_transparente"
+                android:onClick="abrirQuantidadesAbate"
+                android:text="Resumo Quantidades Abate" />
+
 
         </LinearLayout>
     </ScrollView>

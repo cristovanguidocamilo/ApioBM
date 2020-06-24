@@ -70,6 +70,11 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void abrirQuantidadesAbate(View view) {
+        Intent intent = new Intent(MainActivity.this, QuantidadesAbateActivity.class);
+        startActivity(intent);
+    }
+
     @Override
     protected void onStart() {
         super.onStart();

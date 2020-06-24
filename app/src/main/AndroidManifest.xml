@@ -12,7 +12,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.QuantidadesLoteActivity"></activity>
+        <activity android:name=".activity.QuantidadesAbateActivity"
+            android:parentActivityName=".activity.MainActivity"></activity>
+        <activity android:name=".activity.QuantidadesLoteActivity" />
         <activity android:name=".activity.MainActivity" />
         <activity
             android:name=".activity.EscalaAbateActivity"
