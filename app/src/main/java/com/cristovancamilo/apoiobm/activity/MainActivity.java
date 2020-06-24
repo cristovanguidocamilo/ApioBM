@@ -108,16 +108,19 @@ public class MainActivity extends AppCompatActivity {
                 if(response.isSuccessful()) {
                     listaAcompanhaAbate = response.body();
 
+                    int abatidos = (int) Float.parseFloat(listaAcompanhaAbate.get(0).getAbatidos().replace(",", "."));
+                    int restam = (int) Float.parseFloat(listaAcompanhaAbate.get(0).getRestam().replace(",", "."));
+
                     textoTotalAbate.setText("Total: " + listaAcompanhaAbate.get(0).getTotal());
-                    textoAbatidos.setText("Abatidos: " + listaAcompanhaAbate.get(0).getAbatidos());
-                    textoRestam.setText("Restam: " + listaAcompanhaAbate.get(0).getRestam());
+                    textoAbatidos.setText("Abatidos: " + abatidos);
+                    textoRestam.setText("Restam: " + restam);
 
                     textoTotalAbate.setTextColor(getApplicationContext().getResources().getColor(R.color.verde_texto_online));
                     textoAbatidos.setTextColor(getApplicationContext().getResources().getColor(R.color.verde_texto_online));
                     textoRestam.setTextColor(getApplicationContext().getResources().getColor(R.color.verde_texto_online));
 
                     pbQuantidadeAbate.setMax(Integer.parseInt(listaAcompanhaAbate.get(0).getTotal()));
-                    pbQuantidadeAbate.setProgress(Integer.parseInt(listaAcompanhaAbate.get(0).getAbatidos()));
+                    pbQuantidadeAbate.setProgress(abatidos);
 
                 }
             }

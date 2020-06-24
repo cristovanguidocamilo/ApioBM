@@ -46,7 +46,7 @@ public class QuantidadesLoteActivity extends AppCompatActivity {
         swipeContainer.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                recuperarQuantidadesLote("");
+                recuperarQuantidadesLote("00");
             }
         });
         swipeContainer.setColorSchemeResources(android.R.color.holo_blue_bright,
@@ -54,21 +54,20 @@ public class QuantidadesLoteActivity extends AppCompatActivity {
                 android.R.color.holo_orange_light,
                 android.R.color.holo_red_light);
 
-        recyclerView = findViewById(R.id.recyclerViewEstoqueBloqueado);
+        recyclerView = findViewById(R.id.recyclerViewQuantidadesLote);
 
-        recuperarQuantidadesLote("");
+        recuperarQuantidadesLote("00");
     }
 
     public void recuperarQuantidadesLote(String num_lote) {
         ApoioBMService apoioBMService = retrofit.create(ApoioBMService.class);
         Call<List<QuantidadesLote>> call = apoioBMService.recuperarQuantidadesLote(num_lote);
 
-        listaQuantidadesLote.clear();
-
         call.enqueue(new Callback<List<QuantidadesLote>>() {
             @Override
             public void onResponse(Call<List<QuantidadesLote>> call, Response<List<QuantidadesLote>> response) {
                 if(response.isSuccessful()) {
+                    listaQuantidadesLote.clear();
                     listaQuantidadesLote = response.body();
                     configuraRecyclerView();
                     swipeContainer.setRefreshing(false);

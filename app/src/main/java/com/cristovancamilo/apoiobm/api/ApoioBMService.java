@@ -26,7 +26,7 @@ public interface ApoioBMService {
     @GET("/datasnap/rest/TSM_BM/EscalaAbate")
     Call<List<EscalaAbate>> recuperarEscalaAbate();
 
-    @GET("/datasnap/rest/TSM_BM/EscalaAbate/{num_lote}")
+    @GET("/datasnap/rest/TSM_BM/QuantidadesLote/{num_lote}")
     Call<List<QuantidadesLote>> recuperarQuantidadesLote(@Path("num_lote") String num_lote);
 
 }
