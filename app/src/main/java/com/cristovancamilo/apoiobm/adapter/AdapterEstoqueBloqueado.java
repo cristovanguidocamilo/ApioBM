@@ -54,10 +54,10 @@ public class AdapterEstoqueBloqueado extends RecyclerView.Adapter<AdapterEstoque
         public MyViewHolder(View itemView) {
             super(itemView);
 
-            textoAbate = itemView.findViewById(R.id.textViewDataAbate);
-            textoHabilitacao = itemView.findViewById(R.id.textViewHabilitacaoCamara);
+            textoAbate = itemView.findViewById(R.id.textViewQtdLoteNumLote);
+            textoHabilitacao = itemView.findViewById(R.id.textViewQtdLoteHabilitacao);
             textoProduto = itemView.findViewById(R.id.textViewProduto);
-            textoQuantidade = itemView.findViewById(R.id.textViewQuantidadeEscala);
+            textoQuantidade = itemView.findViewById(R.id.textViewQtdLoteQuantidade);
 
         }
     }

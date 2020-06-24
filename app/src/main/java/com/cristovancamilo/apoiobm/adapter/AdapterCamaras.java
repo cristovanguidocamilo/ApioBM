@@ -62,7 +62,7 @@ public class AdapterCamaras extends RecyclerView.Adapter<AdapterCamaras.MyViewHo
             super(itemView);
 
             textoCodCamara = itemView.findViewById(R.id.textViewCodCamara);
-            textoHabilitacao = itemView.findViewById(R.id.textViewHabilitacaoCamara);
+            textoHabilitacao = itemView.findViewById(R.id.textViewQtdLoteHabilitacao);
             textoQuantidade = itemView.findViewById(R.id.textViewQuantidadeCamara);
             textoPeriodo = itemView.findViewById(R.id.textViewPeriodoCamara);
             linearLayout = itemView.findViewById(R.id.linearLayoutFundoCamaras);

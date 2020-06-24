@@ -1,27 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical">
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="6dp"
-        android:layout_marginTop="6dp"
-        android:layout_marginRight="6dp"
-        android:orientation="horizontal">
-
-        <TextView
-            android:id="@+id/textViewProduto"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="6"
-            android:gravity="center"
-            android:text="PROD: 011010 - PONTA DE AGULHA DE VACA"
-            android:textSize="17sp" />
-
-    </LinearLayout>
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -30,12 +10,12 @@
         android:layout_marginRight="6dp"
         android:layout_marginBottom="6dp"
         android:gravity="center_vertical"
-        android:orientation="horizontal"
+        android:orientation="vertical"
         android:padding="6dp">
 
         <TextView
             android:id="@+id/textViewQtdLoteNumLote"
-            android:layout_width="115dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="6dp"
             android:layout_weight="20"
@@ -45,7 +25,7 @@
 
         <TextView
             android:id="@+id/textViewQtdLoteHabilitacao"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="6dp"
             android:layout_weight="50"
@@ -55,7 +35,7 @@
 
         <TextView
             android:id="@+id/textViewQtdLoteQuantidade"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="6dp"
             android:layout_weight="20"
@@ -65,4 +45,5 @@
     </LinearLayout>
 
     <include layout="@layout/divisor_lista" />
+
 </LinearLayout>

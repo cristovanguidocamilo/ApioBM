@@ -1,7 +1,5 @@
 package com.cristovancamilo.apoiobm.activity;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -9,6 +7,8 @@ import android.view.WindowManager;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.cristovancamilo.apoiobm.R;
 import com.cristovancamilo.apoiobm.api.ApoioBMService;
@@ -61,6 +61,11 @@ public class MainActivity extends AppCompatActivity {
 
     public void abrirEscalaAbate(View view) {
         Intent intent = new Intent(MainActivity.this, EscalaAbateActivity.class);
+        startActivity(intent);
+    }
+
+    public void abrirQuantidadesLote(View view) {
+        Intent intent = new Intent(MainActivity.this, QuantidadesLoteActivity.class);
         startActivity(intent);
     }
 

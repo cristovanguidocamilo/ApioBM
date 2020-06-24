@@ -28,7 +28,7 @@
             android:textSize="17sp" />
 
         <TextView
-            android:id="@+id/textViewHabilitacaoCamara"
+            android:id="@+id/textViewQtdLoteHabilitacao"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"

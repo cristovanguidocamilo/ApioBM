@@ -62,7 +62,7 @@ public class AdapterEscalaAbate extends RecyclerView.Adapter<AdapterEscalaAbate.
 
             textoLote = itemView.findViewById(R.id.textViewLote);
             textoSubLote = itemView.findViewById(R.id.textViewSubLote);
-            textoQuantidade = itemView.findViewById(R.id.textViewQuantidadeEscala);
+            textoQuantidade = itemView.findViewById(R.id.textViewQtdLoteQuantidade);
             textoCurrais = itemView.findViewById(R.id.textViewCurrais);
             textoProprietario = itemView.findViewById(R.id.textViewProprietario);
             textoFazenda = itemView.findViewById(R.id.textViewFazenda);
