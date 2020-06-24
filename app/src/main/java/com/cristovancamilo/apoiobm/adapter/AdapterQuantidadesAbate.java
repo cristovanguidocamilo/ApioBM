@@ -36,8 +36,8 @@ public class AdapterQuantidadesAbate extends RecyclerView.Adapter<AdapterQuantid
 
         QuantidadesAbate quantidadesAbate = listaQuantidadesAbate.get(position);
 
-        holder.textoQuantidade.setText("QUANTIDADE: " + quantidadesAbate.getQuantidade());
-        holder.textoHabilitacao.setText("HABILITAÇÃO: " + quantidadesAbate.getHabilitacao());
+        holder.textoQuantidade.setText("QTD: " + quantidadesAbate.getQuantidade());
+        holder.textoHabilitacao.setText("HAB: " + quantidadesAbate.getHabilitacao());
 
     }
 
