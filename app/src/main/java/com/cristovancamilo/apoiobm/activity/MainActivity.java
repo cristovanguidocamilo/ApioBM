@@ -66,6 +66,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void abrirQuantidadesLote(View view) {
         Intent intent = new Intent(MainActivity.this, QuantidadesLoteActivity.class);
+        intent.putExtra("num_lote", "00");
         startActivity(intent);
     }
 

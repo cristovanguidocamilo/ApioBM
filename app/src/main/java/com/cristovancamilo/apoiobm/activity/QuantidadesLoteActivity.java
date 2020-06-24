@@ -45,6 +45,7 @@ public class QuantidadesLoteActivity extends AppCompatActivity {
             numLote = "00";
         }
 
+
         //Configurando Retrofit
         retrofit = RetrofitConfig.getRetrofit();
 
@@ -64,6 +65,12 @@ public class QuantidadesLoteActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.recyclerViewQuantidadesLote);
 
         recuperarQuantidadesLote(numLote);
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        finish();
+        return true;
     }
 
     public void recuperarQuantidadesLote(String num_lote) {
