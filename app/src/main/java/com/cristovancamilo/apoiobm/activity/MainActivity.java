@@ -100,12 +100,12 @@ public class MainActivity extends AppCompatActivity {
         ApoioBMService apoioBMService = retrofit.create(ApoioBMService.class);
         Call<List<AcompanhaAbate>> call = apoioBMService.recuperarAcompanhaAbate();
 
-        listaAcompanhaAbate.clear();
-
        call.enqueue(new Callback<List<AcompanhaAbate>>() {
             @Override
             public void onResponse(Call<List<AcompanhaAbate>> call, Response<List<AcompanhaAbate>> response) {
                 if(response.isSuccessful()) {
+
+                    listaAcompanhaAbate.clear();
                     listaAcompanhaAbate = response.body();
 
                     int abatidos = (int) Float.parseFloat(listaAcompanhaAbate.get(0).getAbatidos().replace(",", "."));

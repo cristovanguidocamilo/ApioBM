@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -17,31 +18,33 @@
             android:id="@+id/textViewQtdLoteNumLote"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="6dp"
             android:layout_weight="20"
             android:gravity="center"
-            android:text="ABATE: 05/06/2020"
-            android:textSize="17sp" />
+            android:text="LOTE: 01"
+            android:textSize="17sp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/textViewQtdLoteHabilitacao"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="6dp"
+            android:layout_marginTop="6dp"
             android:layout_weight="50"
             android:gravity="center"
             android:text="HABILITAÇÃO: UA-CHINA-HAL"
-            android:textSize="17sp" />
+            android:textSize="17sp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/textViewQtdLoteQuantidade"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="6dp"
+            android:layout_marginTop="6dp"
             android:layout_weight="20"
             android:gravity="center"
             android:text="QTD: 1100"
-            android:textSize="17sp" />
+            android:textSize="17sp"
+            android:textStyle="bold" />
     </LinearLayout>
 
     <include layout="@layout/divisor_lista" />

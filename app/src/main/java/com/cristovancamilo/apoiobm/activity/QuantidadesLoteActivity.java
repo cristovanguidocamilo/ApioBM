@@ -29,6 +29,7 @@ public class QuantidadesLoteActivity extends AppCompatActivity {
     private List<QuantidadesLote> listaQuantidadesLote = new ArrayList<>();
     private Retrofit retrofit;
     private SwipeRefreshLayout swipeContainer;
+    private String numLote;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +39,12 @@ public class QuantidadesLoteActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle("Quantidades Por Lote");
 
+        Bundle dados = getIntent().getExtras();
+        numLote = dados.getString("num_lote");
+        if(numLote.isEmpty() || numLote.equals("")) {
+            numLote = "00";
+        }
+
         //Configurando Retrofit
         retrofit = RetrofitConfig.getRetrofit();
 
@@ -46,7 +53,7 @@ public class QuantidadesLoteActivity extends AppCompatActivity {
         swipeContainer.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                recuperarQuantidadesLote("00");
+                recuperarQuantidadesLote(numLote);
             }
         });
         swipeContainer.setColorSchemeResources(android.R.color.holo_blue_bright,
@@ -56,7 +63,7 @@ public class QuantidadesLoteActivity extends AppCompatActivity {
 
         recyclerView = findViewById(R.id.recyclerViewQuantidadesLote);
 
-        recuperarQuantidadesLote("00");
+        recuperarQuantidadesLote(numLote);
     }
 
     public void recuperarQuantidadesLote(String num_lote) {

@@ -1,6 +1,9 @@
 package com.cristovancamilo.apoiobm.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -9,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.cristovancamilo.apoiobm.R;
+import com.cristovancamilo.apoiobm.RecyclerItemClickListener;
 import com.cristovancamilo.apoiobm.adapter.AdapterEscalaAbate;
 import com.cristovancamilo.apoiobm.api.ApoioBMService;
 import com.cristovancamilo.apoiobm.helper.RetrofitConfig;
@@ -90,5 +94,30 @@ public class EscalaAbateActivity extends AppCompatActivity {
         recyclerViewEscalaAbate.setLayoutManager(layoutManager);
         recyclerViewEscalaAbate.setHasFixedSize(true);
         recyclerViewEscalaAbate.setAdapter(adapterEscalaAbate);
+
+        recyclerViewEscalaAbate.addOnItemTouchListener(new RecyclerItemClickListener(getApplicationContext(), recyclerViewEscalaAbate, new RecyclerItemClickListener.OnItemClickListener() {
+            @Override
+            public void onItemClick(View view, int position) {
+                EscalaAbate escalaAbate = listEscalaAbate.get(position);
+                abrirQuantidadesLote(escalaAbate.getLote().toString());
+            }
+
+            @Override
+            public void onLongItemClick(View view, int position) {
+
+            }
+
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+            }
+        }));
+    }
+
+    public void abrirQuantidadesLote(String num_lote) {
+        Intent intent = new Intent(EscalaAbateActivity.this, QuantidadesLoteActivity.class);
+        intent.putExtra("num_lote", num_lote);
+        startActivity(intent);
+
     }
 }
