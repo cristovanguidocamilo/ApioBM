@@ -1,11 +1,12 @@
 package com.cristovancamilo.apoiobm.api;
 
+import com.cristovancamilo.apoiobm.model.AcompanhaAbate;
 import com.cristovancamilo.apoiobm.model.Camaras;
 import com.cristovancamilo.apoiobm.model.EscalaAbate;
-import com.cristovancamilo.apoiobm.model.AcompanhaAbate;
 import com.cristovancamilo.apoiobm.model.EstoqueBloqueado;
 import com.cristovancamilo.apoiobm.model.QuantidadesAbate;
 import com.cristovancamilo.apoiobm.model.QuantidadesLote;
+import com.cristovancamilo.apoiobm.model.ValidaUsuario;
 
 import java.util.List;
 
@@ -32,5 +33,8 @@ public interface ApoioBMService {
 
     @GET("/datasnap/rest/TSM_BM/QuantidadesAbate")
     Call<List<QuantidadesAbate>> recuperarQuantidadesAbate();
+
+    @GET("/datasnap/rest/TSM_BM/ValidaUsuario/{usuario}/{senha}")
+    Call<List<ValidaUsuario>> validarUsuario(@Path("usuario") String usuario, @Path("senha") String senha);
 
 }
