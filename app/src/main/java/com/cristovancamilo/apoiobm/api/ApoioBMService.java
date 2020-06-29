@@ -37,4 +37,7 @@ public interface ApoioBMService {
     @GET("/datasnap/rest/TSM_BM/ValidaUsuario/{usuario}/{senha}")
     Call<List<ValidaUsuario>> validarUsuario(@Path("usuario") String usuario, @Path("senha") String senha);
 
+    @GET("/datasnap/rest/TSM_BM/CadastraUsuario/{usuario}/{senha}/{cpf_cnpj}")
+    Call<List<ValidaUsuario>> cadasatraUsuario(@Path("usuario") String usuario, @Path("senha") String senha, @Path("cpf_cnpj") String cpf_cnpj);
+
 }

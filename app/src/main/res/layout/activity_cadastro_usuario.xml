@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="8dp"
+    tools:context=".activity.CadastroUsuarioActivity">
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginBottom="3dp"
+        app:srcCompat="@drawable/alimentosbm" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="3dp"
+        android:layout_marginBottom="3dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/textCadUsuCPFCNPJ"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="CPF/CNPJ"
+            android:inputType="number"
+            android:textColor="@android:color/black"
+            android:textColorHint="@android:color/black" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="3dp"
+        android:layout_marginBottom="3dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/textCadUsuUsuario"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Nome de Usuário"
+            android:inputType="text"
+            android:textColor="@android:color/black"
+            android:textColorHint="@android:color/black" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="3dp"
+        android:layout_marginBottom="3dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/textCadUsuSenha"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Senha"
+            android:inputType="textPassword"
+            android:textColor="@android:color/black"
+            android:textColorHint="@android:color/black" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="3dp"
+        android:layout_marginBottom="3dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/textCadUsuConfSenha"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Confirme a Senha"
+            android:inputType="textPassword"
+            android:textColor="@android:color/black"
+            android:textColorHint="@android:color/black" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="3dp"
+        android:layout_marginBottom="3dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnCadUsuCancelar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="3dp"
+            android:layout_weight="1"
+            android:onClick="cancelar"
+            android:text="Cancelar"
+            android:textColor="@android:color/black" />
+
+        <Button
+            android:id="@+id/btnCadUsuCadastrar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="3dp"
+            android:layout_weight="1"
+            android:onClick="cadastarUsuario"
+            android:text="Cadastrar"
+            android:textColor="@android:color/black" />
+    </LinearLayout>
+
+</LinearLayout>

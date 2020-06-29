@@ -12,9 +12,11 @@
         android:roundIcon="@mipmap/ic_launcher_bm_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.SplashActivity"
-            android:theme="@style/Theme.AppCompat.NoActionBar"
-            android:screenOrientation="portrait"></activity>
+        <activity android:name=".activity.CadastroUsuarioActivity"></activity>
+        <activity
+            android:name=".activity.SplashActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity
             android:name=".activity.QuantidadesAbateActivity"
             android:parentActivityName=".activity.MainActivity"

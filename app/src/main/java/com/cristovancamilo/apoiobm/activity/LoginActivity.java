@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.cristovancamilo.apoiobm.R;
 import com.cristovancamilo.apoiobm.api.ApoioBMService;
+import com.cristovancamilo.apoiobm.helper.Base64Custom;
 import com.cristovancamilo.apoiobm.helper.RetrofitConfig;
 import com.cristovancamilo.apoiobm.model.ValidaUsuario;
 import com.google.android.material.textfield.TextInputEditText;
@@ -25,7 +26,7 @@ public class LoginActivity extends AppCompatActivity {
 
     private Retrofit retrofit;
     private List<ValidaUsuario> listaValidaUsuario = new ArrayList<>();
-    TextInputEditText textUsuario, textSenha;
+    private TextInputEditText textUsuario, textSenha;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,19 +47,32 @@ public class LoginActivity extends AppCompatActivity {
         finish();
     }
 
+    public void abrirCadastroUsuario(View view) {
+        Intent intent = new Intent(LoginActivity.this, CadastroUsuarioActivity.class);
+        startActivity(intent);
+    }
+
     public void validarUsuario(View view) {
 
         ApoioBMService apoioBMService = retrofit.create(ApoioBMService.class);
-        Call<List<ValidaUsuario>> call = apoioBMService.validarUsuario(textUsuario.getText().toString(), textSenha.getText().toString());
+        Call<List<ValidaUsuario>> call = apoioBMService.validarUsuario(Base64Custom.codificarBase64(textUsuario.getText().toString()), Base64Custom.codificarBase64(textSenha.getText().toString()));
 
         call.enqueue(new Callback<List<ValidaUsuario>>() {
             @Override
             public void onResponse(Call<List<ValidaUsuario>> call, Response<List<ValidaUsuario>> response) {
+                String mensagem = "";
                 if(response.isSuccessful()) {
                     listaValidaUsuario.clear();
                     listaValidaUsuario = response.body();
-                    if(listaValidaUsuario.get(0).getResult().equals("Login Permitido")) {
+                    if(listaValidaUsuario.get(0).getResult().equals("RET000")) {
                         abrirSplashScreen();
+                    } else if(listaValidaUsuario.get(0).getResult().equals("RET001")) {
+                        mensagem = "Usuário não encontrado!";
+                    }else if(listaValidaUsuario.get(0).getResult().equals("RET002")) {
+                        mensagem = "Senha Incorreta!";
+                    }
+                    if(!mensagem.equals("")) {
+                        Toast.makeText(LoginActivity.this, mensagem, Toast.LENGTH_LONG).show();
                     }
                 }
             }
@@ -68,5 +82,9 @@ public class LoginActivity extends AppCompatActivity {
                 Toast.makeText(LoginActivity.this, t.getMessage(), Toast.LENGTH_LONG).show();
             }
         });
+    }
+
+    public void byPass(View view) {
+        abrirSplashScreen();
     }
 }
