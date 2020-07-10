@@ -1,7 +1,5 @@
 package com.cristovancamilo.apoiobm.activity;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -9,13 +7,17 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.cristovancamilo.apoiobm.R;
+import com.cristovancamilo.apoiobm.model.AbatesPecuarista;
 
 public class SplashActivity extends AppCompatActivity {
 
     private ImageView imageView;
     private Animation animation;
     private String exibeSplash;
+    private String cgc, tipo;
 
 
     @Override
@@ -26,6 +28,10 @@ public class SplashActivity extends AppCompatActivity {
         imageView = findViewById(R.id.imageView);
         animation = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fade);
         imageView.startAnimation(animation);
+
+        Bundle dados = getIntent().getExtras();
+        cgc = dados.getString("cgc");
+        tipo = dados.getString("tipo");
 
         exibeSplash = "S";
         mostrarSplash();
@@ -38,9 +44,12 @@ public class SplashActivity extends AppCompatActivity {
             new Handler().postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    Intent intent = new Intent(SplashActivity.this, MainActivity.class);
-                    startActivity(intent);
-                    finish();
+                    if(tipo.equals("2") || tipo == "2") {
+                        Intent intent = new Intent(SplashActivity.this, AbatesPecuaristaActivity.class);
+                        intent.putExtra("cgc", cgc);
+                        startActivity(intent);
+                        finish();
+                    }
                 }
             }, 3000);
         }

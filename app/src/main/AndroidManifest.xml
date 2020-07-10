@@ -12,7 +12,10 @@
         android:roundIcon="@mipmap/ic_launcher_bm_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.CadastroUsuarioActivity"></activity>
+        <activity android:name=".activity.AbatesPecuaristaActivity">
+
+        </activity>
+        <activity android:name=".activity.CadastroUsuarioActivity" />
         <activity
             android:name=".activity.SplashActivity"
             android:screenOrientation="portrait"

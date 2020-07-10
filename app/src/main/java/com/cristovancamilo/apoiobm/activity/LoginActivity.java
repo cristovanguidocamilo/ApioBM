@@ -41,8 +41,10 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
-    public void abrirSplashScreen() {
+    public void abrirSplashScreen(String cgc, String tipo) {
         Intent intent = new Intent(LoginActivity.this, SplashActivity.class);
+        intent.putExtra("cgc", cgc);
+        intent.putExtra("tipo", tipo);
         startActivity(intent);
         finish();
     }
@@ -65,7 +67,7 @@ public class LoginActivity extends AppCompatActivity {
                     listaValidaUsuario.clear();
                     listaValidaUsuario = response.body();
                     if(listaValidaUsuario.get(0).getResult().equals("RET000")) {
-                        abrirSplashScreen();
+                        abrirSplashScreen(listaValidaUsuario.get(0).getCgc(), listaValidaUsuario.get(0).getTipo());
                     } else if(listaValidaUsuario.get(0).getResult().equals("RET001")) {
                         mensagem = "Usuário não encontrado!";
                     }else if(listaValidaUsuario.get(0).getResult().equals("RET002")) {
@@ -85,6 +87,6 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void byPass(View view) {
-        abrirSplashScreen();
+        //abrirSplashScreen();
     }
 }

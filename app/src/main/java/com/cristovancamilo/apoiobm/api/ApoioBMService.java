@@ -1,5 +1,6 @@
 package com.cristovancamilo.apoiobm.api;
 
+import com.cristovancamilo.apoiobm.model.AbatesPecuarista;
 import com.cristovancamilo.apoiobm.model.AcompanhaAbate;
 import com.cristovancamilo.apoiobm.model.Camaras;
 import com.cristovancamilo.apoiobm.model.EscalaAbate;
@@ -39,5 +40,8 @@ public interface ApoioBMService {
 
     @GET("/datasnap/rest/TSM_BM/CadastraUsuario/{usuario}/{senha}/{cpf_cnpj}")
     Call<List<ValidaUsuario>> cadasatraUsuario(@Path("usuario") String usuario, @Path("senha") String senha, @Path("cpf_cnpj") String cpf_cnpj);
+
+    @GET("/datasnap/rest/TSM_BM/AbatesPecuarista/{cgc}")
+    Call<List<AbatesPecuarista>> recuperarAbatesPecuarista(@Path("cgc") String cgc);
 
 }
