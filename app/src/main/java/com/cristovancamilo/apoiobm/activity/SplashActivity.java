@@ -10,7 +10,6 @@ import android.widget.ImageView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.cristovancamilo.apoiobm.R;
-import com.cristovancamilo.apoiobm.model.AbatesPecuarista;
 
 public class SplashActivity extends AppCompatActivity {
 

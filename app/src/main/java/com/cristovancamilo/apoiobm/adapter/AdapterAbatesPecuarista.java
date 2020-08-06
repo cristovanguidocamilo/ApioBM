@@ -38,7 +38,7 @@ public class AdapterAbatesPecuarista extends RecyclerView.Adapter<AdapterAbatesP
 
         holder.textoNome.setText(abatesPecuarista.getNome());
         holder.textoDataAbate.setText(abatesPecuarista.getDataAbate());
-        holder.textoQuant.setText(abatesPecuarista.getQuant());
+        holder.textoQuant.setText(abatesPecuarista.getQuant() + "Animais");
     }
 
     @Override

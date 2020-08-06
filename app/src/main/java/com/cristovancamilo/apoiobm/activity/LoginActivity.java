@@ -41,6 +41,12 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
+    public void abrirMainActivity() {
+        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+        startActivity(intent);
+        finish();
+    }
+
     public void abrirSplashScreen(String cgc, String tipo) {
         Intent intent = new Intent(LoginActivity.this, SplashActivity.class);
         intent.putExtra("cgc", cgc);
@@ -87,6 +93,6 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void byPass(View view) {
-        //abrirSplashScreen();
+        abrirMainActivity();
     }
 }
