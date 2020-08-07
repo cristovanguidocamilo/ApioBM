@@ -36,9 +36,18 @@ public class AdapterAbatesPecuarista extends RecyclerView.Adapter<AdapterAbatesP
 
         AbatesPecuarista abatesPecuarista = listaAbatesPecuarista.get(position);
 
-        holder.textoNome.setText(abatesPecuarista.getNome());
+        holder.textoLote.setText("Lote de Abate: " + abatesPecuarista.getLote());
         holder.textoDataAbate.setText(abatesPecuarista.getDataAbate());
-        holder.textoQuant.setText(abatesPecuarista.getQuant() + "Animais");
+        holder.textoQuant.setText(abatesPecuarista.getQuant() + " Animais");
+        holder.textoStatus.setText(abatesPecuarista.getStatus());
+        holder.textoPesoAbatido.setText("Peso Abatido: " + abatesPecuarista.getPesoAbatido());
+        if (abatesPecuarista.getStatus().toString() == "Aguardando Abate..." || abatesPecuarista.getStatus().toString().equals("Aguardando Abate...")) {
+            holder.textoStatus.setTextColor(context.getResources().getColor(R.color.vermelho_texto_offline));
+        }else if (abatesPecuarista.getStatus().toString() == "Em Abate..." || abatesPecuarista.getStatus().toString().equals("Em Abate...")) {
+            holder.textoStatus.setTextColor(context.getResources().getColor(R.color.amarelo_status_em_abate));
+        }else if (abatesPecuarista.getStatus().toString() == "Finalizado." || abatesPecuarista.getStatus().toString().equals("Finalizado.")) {
+        holder.textoStatus.setTextColor(context.getResources().getColor(R.color.verde_status_finalizado));
+        }
     }
 
     @Override
@@ -48,14 +57,16 @@ public class AdapterAbatesPecuarista extends RecyclerView.Adapter<AdapterAbatesP
 
     public class MyViewHolder extends RecyclerView.ViewHolder{
 
-        TextView textoDataAbate, textoNome, textoQuant;
+        TextView textoDataAbate, textoLote, textoQuant, textoStatus, textoPesoAbatido;
 
         public MyViewHolder(View itemView) {
             super(itemView);
 
-            textoNome = itemView.findViewById(R.id.textAbatesPecuaristaNome);
+            textoLote = itemView.findViewById(R.id.textAbatesPecuaristaLote);
             textoDataAbate = itemView.findViewById(R.id.textAbatesPecuaristaAbate);
             textoQuant = itemView.findViewById(R.id.textAbatesPecuaristaQuant);
+            textoStatus = itemView.findViewById(R.id.textAbatesPecuaristaStatus);
+            textoPesoAbatido = itemView.findViewById(R.id.textViewAbatesPecuaristaPesoAbatido);
 
         }
     }

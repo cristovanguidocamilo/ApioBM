@@ -12,8 +12,8 @@
         android:roundIcon="@mipmap/ic_launcher_bm_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.AbatesPecuaristaActivity">
-
+        <activity android:name=".activity.AbatesPecuaristaActivity"
+            android:screenOrientation="portrait">
         </activity>
         <activity android:name=".activity.CadastroUsuarioActivity" />
         <activity

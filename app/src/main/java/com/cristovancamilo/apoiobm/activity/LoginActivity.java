@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.cristovancamilo.apoiobm.R;
 import com.cristovancamilo.apoiobm.api.ApoioBMService;
 import com.cristovancamilo.apoiobm.helper.Base64Custom;
+import com.cristovancamilo.apoiobm.helper.PreferenciasSistema;
 import com.cristovancamilo.apoiobm.helper.RetrofitConfig;
 import com.cristovancamilo.apoiobm.model.ValidaUsuario;
 import com.google.android.material.textfield.TextInputEditText;
@@ -27,6 +28,9 @@ public class LoginActivity extends AppCompatActivity {
     private Retrofit retrofit;
     private List<ValidaUsuario> listaValidaUsuario = new ArrayList<>();
     private TextInputEditText textUsuario, textSenha;
+    private PreferenciasSistema preferenciasSistema;
+
+    private final int MINUTOS_LOGIN_EXPIRACAO = 120;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +39,11 @@ public class LoginActivity extends AppCompatActivity {
 
         textUsuario = findViewById(R.id.textUsuario);
         textSenha = findViewById(R.id.textSenha);
+        preferenciasSistema = new PreferenciasSistema(getApplicationContext());
+
+        if (diferencaDatas(System.currentTimeMillis(), Long.parseLong(preferenciasSistema.recuperarHorarioLogin()))/1000/60 <= MINUTOS_LOGIN_EXPIRACAO) {
+            abrirSplashScreen(preferenciasSistema.recuperarCGC(), preferenciasSistema.recuperarTipo());
+        }
 
         //Configurando Retrofit
         retrofit = RetrofitConfig.getRetrofit();
@@ -74,6 +83,8 @@ public class LoginActivity extends AppCompatActivity {
                     listaValidaUsuario = response.body();
                     if(listaValidaUsuario.get(0).getResult().equals("RET000")) {
                         abrirSplashScreen(listaValidaUsuario.get(0).getCgc(), listaValidaUsuario.get(0).getTipo());
+                        //preferenciasSistema.salvarHorarioLogin(DateFormat.getInstance().format(new Date(System.currentTimeMillis())));
+                        preferenciasSistema.salvarHorarioLogin(String.valueOf(System.currentTimeMillis()), listaValidaUsuario.get(0).getCgc(), listaValidaUsuario.get(0).getTipo());
                     } else if(listaValidaUsuario.get(0).getResult().equals("RET001")) {
                         mensagem = "Usuário não encontrado!";
                     }else if(listaValidaUsuario.get(0).getResult().equals("RET002")) {
@@ -94,5 +105,9 @@ public class LoginActivity extends AppCompatActivity {
 
     public void byPass(View view) {
         abrirMainActivity();
+    }
+
+    public long diferencaDatas(Long data1, Long data2) {
+        return data1 - data2;
     }
 }

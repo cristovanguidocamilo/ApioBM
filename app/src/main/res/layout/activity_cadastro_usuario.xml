@@ -44,8 +44,8 @@
             android:id="@+id/textCadUsuUsuario"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Nome de Usuário"
-            android:inputType="text"
+            android:hint="Usuário (e-mail)"
+            android:inputType="textEmailAddress"
             android:textColor="@android:color/black"
             android:textColorHint="@android:color/black" />
     </com.google.android.material.textfield.TextInputLayout>

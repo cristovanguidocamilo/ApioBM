@@ -1,6 +1,7 @@
 package com.cristovancamilo.apoiobm.activity;
 
 import android.os.Bundle;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -16,6 +17,7 @@ import com.google.android.material.textfield.TextInputEditText;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Pattern;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -47,41 +49,51 @@ public class CadastroUsuarioActivity extends AppCompatActivity {
     }
 
     public void cadastarUsuario(View view) {
-        if(textSenha.getText().toString().equals(textConfSenha.getText().toString())) {
-            ApoioBMService apoioBMService = retrofit.create(ApoioBMService.class);
-            Call<List<ValidaUsuario>> call = apoioBMService.cadasatraUsuario(Base64Custom.codificarBase64(textUsuario.getText().toString()), Base64Custom.codificarBase64(textSenha.getText().toString()), Base64Custom.codificarBase64(textCPFCNPJ.getText().toString()));
+        if(validarEmail(textUsuario.getText().toString())) {
+            if (textSenha.getText().toString().equals(textConfSenha.getText().toString())) {
+                ApoioBMService apoioBMService = retrofit.create(ApoioBMService.class);
+                Call<List<ValidaUsuario>> call = apoioBMService.cadasatraUsuario(Base64Custom.codificarBase64(textUsuario.getText().toString()), Base64Custom.codificarBase64(textSenha.getText().toString()), Base64Custom.codificarBase64(textCPFCNPJ.getText().toString()));
 
-            call.enqueue(new Callback<List<ValidaUsuario>>() {
-                @Override
-                public void onResponse(Call<List<ValidaUsuario>> call, Response<List<ValidaUsuario>> response) {
-                    String mensagem = "";
-                    if (response.isSuccessful()) {
-                        listaValidaUsuario.clear();
-                        listaValidaUsuario = response.body();
-                        if (listaValidaUsuario.get(0).getResult().equals("RET000")) {
-                            mensagem = "Usuário Cadastrado com Sucesso!";
-                            finish();
-                        } else if (listaValidaUsuario.get(0).getResult().equals("RET001")) {
-                            mensagem = "CPF ou CNPJ Inválido!";
-                        } else if (listaValidaUsuario.get(0).getResult().equals("RET002")) {
-                            mensagem = "Usuário já Cadastrado!";
-                        } else if (listaValidaUsuario.get(0).getResult().equals("RET003")) {
-                            mensagem = "Erro ao gravar no Banco de Dados!";
+                call.enqueue(new Callback<List<ValidaUsuario>>() {
+                    @Override
+                    public void onResponse(Call<List<ValidaUsuario>> call, Response<List<ValidaUsuario>> response) {
+                        String mensagem = "";
+                        if (response.isSuccessful()) {
+                            listaValidaUsuario.clear();
+                            listaValidaUsuario = response.body();
+                            if (listaValidaUsuario.get(0).getResult().equals("RET000")) {
+                                mensagem = "Usuário Cadastrado com Sucesso!";
+                                finish();
+                            } else if (listaValidaUsuario.get(0).getResult().equals("RET001")) {
+                                mensagem = "CPF ou CNPJ Inválido!";
+                            } else if (listaValidaUsuario.get(0).getResult().equals("RET002")) {
+                                mensagem = "Usuário já Cadastrado!";
+                            } else if (listaValidaUsuario.get(0).getResult().equals("RET003")) {
+                                mensagem = "Erro ao gravar no Banco de Dados!";
+                            }
+                            Toast.makeText(CadastroUsuarioActivity.this, mensagem, Toast.LENGTH_LONG).show();
                         }
-                        Toast.makeText(CadastroUsuarioActivity.this, mensagem, Toast.LENGTH_LONG).show();
                     }
-                }
 
-                @Override
-                public void onFailure(Call<List<ValidaUsuario>> call, Throwable t) {
-                    Toast.makeText(CadastroUsuarioActivity.this, t.getMessage(), Toast.LENGTH_LONG).show();
-                }
-            });
+                    @Override
+                    public void onFailure(Call<List<ValidaUsuario>> call, Throwable t) {
+                        Toast.makeText(CadastroUsuarioActivity.this, t.getMessage(), Toast.LENGTH_LONG).show();
+                    }
+                });
+            } else {
+                Toast.makeText(CadastroUsuarioActivity.this, "Senha Não Confere! Digite Novamente!", Toast.LENGTH_LONG).show();
+                textSenha.setText("");
+                textConfSenha.setText("");
+            }
         } else {
-            Toast.makeText(CadastroUsuarioActivity.this, "Senha Não Confere! Digite Novamente!", Toast.LENGTH_LONG).show();
-            textSenha.setText("");
-            textConfSenha.setText("");
+            Toast.makeText(CadastroUsuarioActivity.this, "(" + textUsuario.getText().toString() + ") Não é um e-mail Válido!", Toast.LENGTH_LONG).show();
+            textUsuario.setText("");
         }
+    }
+
+    public boolean validarEmail (String email) {
+        Pattern pattern = Patterns.EMAIL_ADDRESS;
+        return pattern.matcher(email).matches();
     }
 
     public void cancelar(View view) {

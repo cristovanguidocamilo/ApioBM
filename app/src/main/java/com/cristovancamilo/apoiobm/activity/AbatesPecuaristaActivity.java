@@ -1,8 +1,12 @@
 package com.cristovancamilo.apoiobm.activity;
 
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -12,6 +16,7 @@ import com.cristovancamilo.apoiobm.R;
 import com.cristovancamilo.apoiobm.adapter.AdapterAbatesPecuarista;
 import com.cristovancamilo.apoiobm.api.ApoioBMService;
 import com.cristovancamilo.apoiobm.helper.Base64Custom;
+import com.cristovancamilo.apoiobm.helper.PreferenciasSistema;
 import com.cristovancamilo.apoiobm.helper.RetrofitConfig;
 import com.cristovancamilo.apoiobm.model.AbatesPecuarista;
 
@@ -31,14 +36,20 @@ public class AbatesPecuaristaActivity extends AppCompatActivity {
     private Retrofit retrofit;
     private SwipeRefreshLayout swipeContainer;
     private String cgc;
+    private TextView nomeEmpresa;
+    private PreferenciasSistema preferenciasSistema;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_abates_pecuarista);
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setTitle("Meus Abates");
+        //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        //getSupportActionBar().setTitle("Meus Abates");
+
+        preferenciasSistema = new PreferenciasSistema(getApplicationContext());
+
+        nomeEmpresa =findViewById(R.id.textViewCabecalhoAbatesPecuarista);
 
         Bundle dados = getIntent().getExtras();
         cgc = dados.getString("cgc");
@@ -64,6 +75,25 @@ public class AbatesPecuaristaActivity extends AppCompatActivity {
         recuperarAbatesPecuarista();
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_sistema, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+        switch (item.getItemId()) {
+            case R.id.itemSair :
+                preferenciasSistema.salvarHorarioLogin("0", "", "");
+                finish();
+                break;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
     public void recuperarAbatesPecuarista() {
         ApoioBMService apoioBMService = retrofit.create(ApoioBMService.class);
         Call<List<AbatesPecuarista>> call = apoioBMService.recuperarAbatesPecuarista(Base64Custom.codificarBase64(cgc));
@@ -77,6 +107,7 @@ public class AbatesPecuaristaActivity extends AppCompatActivity {
                     listaAbatesPecuarista = response.body();
                     configuraRecyclerView();
                     swipeContainer.setRefreshing(false);
+                    nomeEmpresa.setText("Olá, " + listaAbatesPecuarista.get(0).getNome());
                 }
             }
 
